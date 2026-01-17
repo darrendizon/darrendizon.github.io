@@ -1,0 +1,28 @@
+/* This targets the entire body of the page */
+body {
+  font-family: Arial, sans-serif; /* Makes text easier to read */
+  background-color: #f4f4f4;      /* Light grey background for the whole page */
+  padding: 20px;
+}
+
+/* This targets the 'Intro' section specifically */
+#intro-section {
+  background-color: #ffffff; /* White background */
+  padding: 20px;             /* Adds space inside the box */
+  border-left: 5px solid #007bff; /* A thick blue line on the left side */
+  margin-bottom: 20px;       /* Adds space below this section */
+}
+
+/* This targets the 'Links' section specifically */
+#links-section {
+  background-color: #e3f2fd; /* Very light blue background */
+  padding: 20px;
+  border-radius: 8px;        /* Rounds the corners */
+  border: 1px solid #90caf9; /* Thin darker blue outline */
+}
+
+/* This makes your main heading look cool */
+h1 {
+  color: #333;
+  text-align: center;
+}
