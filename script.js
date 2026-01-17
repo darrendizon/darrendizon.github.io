@@ -1,23 +1,14 @@
-// Function for clicking the Main Title
-function sayHello() {
-  alert("Hello! Thanks for clicking around my website.");
-}
+// Simple script to log a welcome message
+console.log("Welcome to Darren's website!");
 
-// Function for clicking 'Darren Dizon'
-function clickedName(event) {
-  // Optional: Prevent default if you want to stop the link from opening
-  // event.preventDefault();
-  alert("You clicked on the creator, Darren Dizon!");
-}
+// Adds a fun hover effect to the main title
+const title = document.querySelector('h1');
 
-// 1. Connect the Main Heading
-const myHeading = document.getElementById("main-heading");
-if (myHeading) {
-  myHeading.addEventListener("click", sayHello);
-}
+title.addEventListener('mouseover', () => {
+    title.style.transform = "scale(1.1)";
+    title.style.transition = "transform 0.3s ease";
+});
 
-// 2. Connect the Name Link
-const myNameLink = document.getElementById("my-name-link");
-if (myNameLink) {
-  myNameLink.addEventListener("click", clickedName);
-}
+title.addEventListener('mouseout', () => {
+    title.style.transform = "scale(1)";
+});
