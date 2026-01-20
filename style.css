@@ -1,12 +1,12 @@
 :root {
-  --bg-color: #f0f2f5;
+  --bg-color: #f4f6f8;
   --card-bg: #ffffff;
-  --text-main: #333333;
-  --text-muted: #666666;
+  --text-main: #1a1a1a;
+  --text-muted: #5f6368;
   --primary-blue: #007bff;
-  --link-orange: #d35400;
-  --link-purple: #6a1b9a;
-  --link-hover-bg: #fff176;
+  --accent-color: #e17055;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --radius: 16px;
 }
 
 * {
@@ -14,143 +14,135 @@
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: system-ui, -apple-system, sans-serif;
   background-color: var(--bg-color);
   color: var(--text-main);
   margin: 0;
-  padding: 20px;
+  padding: 40px 20px;
   line-height: 1.6;
 }
 
 h1 {
-  color: #2c3e50;
   text-align: center;
+  font-weight: 800;
   margin-bottom: 0.5rem;
-  /* Scales the text slightly based on viewport width */
-  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  letter-spacing: -1px;
+  font-size: clamp(2rem, 5vw, 3rem);
 }
 
 .subtitle {
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 50px;
   color: var(--text-muted);
+  font-size: 1.1rem;
 }
 
-/* Accessibility Skip Link */
 .skip-link {
   position: absolute;
   top: -100px;
   left: 0;
   background: #000;
   color: #fff;
-  padding: 10px;
+  padding: 15px;
   z-index: 100;
   text-decoration: none;
+  border-radius: 0 0 10px 0;
 }
 
 .skip-link:focus {
   top: 0;
 }
 
-/* Main Layout Container */
 #main-content {
   max-width: 800px;
-  width: 100%; /* Ensures it takes up full space on small screens */
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 30px;
 }
 
-/* Intro Section Styles */
 #intro-section {
   background-color: var(--card-bg);
-  padding: 30px;
-  border-radius: 12px;
-  border-left: 5px solid var(--primary-blue);
-  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  padding: 40px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border-left: 6px solid var(--primary-blue);
+  text-align: center;
 }
 
 #intro-section a {
-  color: var(--link-orange);
-  font-weight: bold;
+  color: var(--primary-blue);
+  font-weight: 700;
   text-decoration: none;
-  border-bottom: 2px solid transparent;
 }
 
 #intro-section a:hover {
-  border-bottom: 2px solid var(--link-orange);
+  text-decoration: underline;
 }
 
-/* Links Section - Red and Orange Box */
-#links-section {
-  background: linear-gradient(135deg, #fff3e0 0%, #ffebee 100%);
-  padding: 30px;
-  border-radius: 15px;
-  border: 2px solid #ff9800;
-  box-shadow: 0 8px 20px rgba(255, 87, 34, 0.15);
+#links-section,
+#intro-section ~ section {
+  background: var(--card-bg);
+  padding: 40px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  text-align: left;
 }
 
-#links-section h2 {
-  color: #d84315;
-  border-bottom: 2px solid #ffcc80;
-  padding-bottom: 10px;
+#links-section h2,
+#intro-section ~ section h2 {
   margin-top: 0;
+  font-size: 1.5rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
 }
 
-/* Link List Styling */
 ul {
-  padding-left: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 li {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 li a {
-  color: var(--link-purple);
-  text-decoration: underline;
-  font-weight: 600;
-  word-break: break-word; /* Prevents long links from breaking layout on phones */
+  display: block;
+  padding: 12px 16px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  color: var(--text-main);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
 }
 
 li a:hover {
-  background-color: var(--link-hover-bg);
-  color: #c62828;
-  text-decoration: none;
-  border-radius: 4px;
-  padding: 0 5px;
-  transition: all 0.2s ease;
+  background-color: var(--primary-blue);
+  color: #fff;
+  transform: translateX(5px);
 }
 
 footer {
   text-align: center;
   margin-top: 50px;
-  color: var(--text-muted);
-  font-size: 0.9rem;
-  padding: 0 10px;
+  padding: 20px;
+  border-radius: var(--radius);
+  background-color: #32cd32;
+  color: #000;
+  font-weight: 600;
 }
 
-/* Mobile & Tablet Adjustments */
 @media (max-width: 768px) {
   body {
-    padding: 15px;
-  }
-  
-  #main-content {
-    gap: 20px;
+    padding: 20px 15px;
   }
 
-  .subtitle {
-    margin-bottom: 25px;
-  }
-  
-  section {
-    padding: 20px;
-  }
-
-  /* Make list markers sit closer to text on mobile */
-  ul {
-    padding-left: 15px;
+  #intro-section,
+  #links-section {
+    padding: 25px;
   }
 }
