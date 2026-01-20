@@ -77,19 +77,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Function to update slide visibility
       const updateSlides = (index) => {
-        // Hide all slides
-        slides.forEach(slide => {
-          slide.setAttribute('aria-hidden', 'true');
-          slide.style.display = 'none';
+        // Move track
+        const amountToMove = -100 * index;
+        track.style.transform = `translateX(${amountToMove}%)`;
+
+        // Update accessibility attributes
+        slides.forEach((slide, i) => {
+          if (i === index) {
+            slide.setAttribute('aria-hidden', 'false');
+            // Make content visible to screen readers
+            slide.querySelectorAll('a, button, input').forEach(el => el.setAttribute('tabindex', '0'));
+          } else {
+            slide.setAttribute('aria-hidden', 'true');
+             // Remove from tab order
+             slide.querySelectorAll('a, button, input').forEach(el => el.setAttribute('tabindex', '-1'));
+          }
         });
-
-        // Show current slide
-        const currentSlide = slides[index];
-        currentSlide.setAttribute('aria-hidden', 'false');
-        currentSlide.style.display = 'block';
-
-        // Ensure accessibility focus logic if needed
-        // currentSlide.querySelector('h2').focus();
       };
 
       // Initialize
