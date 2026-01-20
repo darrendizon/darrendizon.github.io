@@ -1,18 +1,36 @@
-/* Ensure all elements calculate width correctly */
+:root {
+  --bg-color: #f0f2f5;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-muted: #666666;
+  --primary-blue: #007bff;
+  --primary-purple: #9b59b6;
+  --link-orange: #d35400;
+  --link-purple: #6a1b9a;
+  --link-hover-bg: #fff176;
+  --link-hover-text: #c62828;
+}
+
+/* Reset & Base Styles */
 * {
   box-sizing: border-box;
 }
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f0f2f5;
-  color: #333;
+  background-color: var(--bg-color);
+  color: var(--text-main);
   margin: 0;
   padding: 20px;
   line-height: 1.6;
 }
 
-/* --- Accessibility Skip Link --- */
+h1 {
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+/* Accessibility */
 .skip-link {
   position: absolute;
   top: -100px;
@@ -28,79 +46,79 @@ body {
   top: 0;
 }
 
-/* --- Layout Grid --- */
-/* This controls the columns */
+/* Layout */
 #main-content {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* Two equal columns */
+  grid-template-columns: 1fr 1fr;
   gap: 30px;
   max-width: 1000px;
   margin: 0 auto;
 }
 
-/* These elements span across the full top width */
 #main-heading,
 .subtitle {
   grid-column: 1 / -1;
   text-align: center;
 }
 
-/* --- Section Cards --- */
+/* Components */
 section {
-  background-color: #ffffff;
+  background-color: var(--card-bg);
   padding: 30px;
   border-radius: 12px;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-/* Intro Section (Left) */
 #intro-section {
-  border-top: 5px solid #007bff;
+  border-top: 5px solid var(--primary-blue);
 }
 
-/* Links Section (Right) */
 #links-section {
-  border-top: 5px solid #9b59b6;
+  border-top: 5px solid var(--primary-purple);
 }
 
-/* --- Link Styling --- */
-/* Target the Darren Dizon link specifically inside the intro */
+footer {
+  text-align: center;
+  margin-top: 40px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* Link Styling */
 #intro-section a {
-  color: #d35400; /* Darker Accessible Orange */
+  color: var(--link-orange);
   font-weight: bold;
   text-decoration: none;
   border-bottom: 2px solid transparent;
 }
 
 #intro-section a:hover {
-  border-bottom: 2px solid #d35400;
+  border-bottom: 2px solid var(--link-orange);
 }
 
-/* Target the list links specifically */
 li a {
-  color: #6a1b9a; /* Deep Purple */
+  color: var(--link-purple);
   text-decoration: underline;
   font-weight: 600;
 }
 
 li a:hover {
-  background-color: #fff176;
-  color: #c62828;
+  background-color: var(--link-hover-bg);
+  color: var(--link-hover-text);
   text-decoration: none;
 }
 
-/* --- Footer --- */
-footer {
-  text-align: center;
-  margin-top: 40px;
-  color: #666;
-  font-size: 0.9rem;
-}
-
-/* --- Mobile Responsiveness --- */
-/* If screen is smaller than 768px, stack columns vertically */
+/* Responsive Design */
 @media (max-width: 768px) {
   #main-content {
     grid-template-columns: 1fr;
+  }
+  
+  body {
+    padding: 15px;
+  }
+  
+  section {
+    padding: 20px;
   }
 }
