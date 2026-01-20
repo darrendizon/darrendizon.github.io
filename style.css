@@ -26,11 +26,14 @@ h1 {
   color: #2c3e50;
   text-align: center;
   margin-bottom: 0.5rem;
+  /* Scales the text slightly based on viewport width */
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
 }
 
 .subtitle {
   text-align: center;
   margin-bottom: 40px;
+  color: var(--text-muted);
 }
 
 /* Accessibility Skip Link */
@@ -52,6 +55,7 @@ h1 {
 /* Main Layout Container */
 #main-content {
   max-width: 800px;
+  width: 100%; /* Ensures it takes up full space on small screens */
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -80,18 +84,15 @@ h1 {
 
 /* Links Section - Red and Orange Box */
 #links-section {
-  /* Pretty Gradient Background (Light Orange to Light Red) */
   background: linear-gradient(135deg, #fff3e0 0%, #ffebee 100%);
   padding: 30px;
   border-radius: 15px;
-  /* Orange Border */
   border: 2px solid #ff9800;
-  /* Red Shadow Glow */
   box-shadow: 0 8px 20px rgba(255, 87, 34, 0.15);
 }
 
 #links-section h2 {
-  color: #d84315; /* Dark Orange/Red Text for header */
+  color: #d84315;
   border-bottom: 2px solid #ffcc80;
   padding-bottom: 10px;
   margin-top: 0;
@@ -110,6 +111,7 @@ li a {
   color: var(--link-purple);
   text-decoration: underline;
   font-weight: 600;
+  word-break: break-word; /* Prevents long links from breaking layout on phones */
 }
 
 li a:hover {
@@ -126,15 +128,29 @@ footer {
   margin-top: 50px;
   color: var(--text-muted);
   font-size: 0.9rem;
+  padding: 0 10px;
 }
 
-/* Mobile Adjustments */
-@media (max-width: 600px) {
+/* Mobile & Tablet Adjustments */
+@media (max-width: 768px) {
   body {
     padding: 15px;
   }
   
+  #main-content {
+    gap: 20px;
+  }
+
+  .subtitle {
+    margin-bottom: 25px;
+  }
+  
   section {
     padding: 20px;
+  }
+
+  /* Make list markers sit closer to text on mobile */
+  ul {
+    padding-left: 15px;
   }
 }
