@@ -60,6 +60,30 @@ document.addEventListener('DOMContentLoaded', () => {
       alert('This is a placeholder for the video player.');
     });
   });
+
+  // Navigation Links Active State (Optimized with Event Delegation)
+  const currentSpan = document.createElement('span');
+  currentSpan.className = 'current-indicator';
+  currentSpan.textContent = ' (Current)';
+  currentSpan.style.display = 'none'; // Hidden by default
+  document.body.appendChild(currentSpan); // Append to body initially
+
+  // Optimized updateMenu using event delegation
+  function updateMenu(e) {
+    // Check if the clicked element is a link inside a navigation list
+    const clickedLink = e.target.closest('.nav-list a, .nav-list-secondary a');
+
+    if (clickedLink) {
+      // Optional: Check if the link is actually inside the intended container if needed
+      // But closest() with specific selectors handles most cases
+
+      currentSpan.style.display = 'inline';
+      clickedLink.appendChild(currentSpan);
+    }
+  }
+
+  // Attach a single click event listener to the document (or a common parent like mobileMenu)
+  document.addEventListener('click', updateMenu);
 });
 
   // Carousel Logic
