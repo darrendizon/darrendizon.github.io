@@ -666,13 +666,7 @@ section {
   box-sizing: border-box;
   padding: 2rem;
   text-align: center;
-  display: none; /* Hidden by default, JS toggles this or we use flex */
-}
-
-/* Override display none if using transform based carousel, but the script might expect specific behavior.
-   Assuming standard slide logic where all are flexed but parent moves. */
-.carousel-slide {
-  display: block; /* Restore display for flex layout */
+  display: block;
 }
 
 .carousel-slide h2 {
