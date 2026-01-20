@@ -51,6 +51,33 @@ navLinks.forEach(link => {
   link.addEventListener('click', updateMenu);
 });
 
+// --- Mobile Navigation Toggle ---
+const navToggle = document.querySelector('.nav-toggle');
+const navList = document.querySelector('.nav-list');
+
+if (navToggle && navList) {
+  navToggle.addEventListener('click', () => {
+    // Toggle the 'active' class to show/hide the menu
+    navList.classList.toggle('active');
+
+    // Update the aria-expanded attribute for accessibility
+    const isExpanded = navList.classList.contains('active');
+    navToggle.setAttribute('aria-expanded', isExpanded);
+
+    // Optional: Focus management can be added here if needed
+  });
+
+  // Close menu when a link is clicked (UX improvement for single page feel or mobile)
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      if (navList.classList.contains('active')) {
+        navList.classList.remove('active');
+        navToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+}
+
 // --- Apple Music Carousel Logic (Merged) ---
 document.addEventListener('DOMContentLoaded', () => {
   const track = document.getElementById('track');
