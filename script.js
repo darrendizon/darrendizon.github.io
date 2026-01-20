@@ -73,23 +73,40 @@ document.addEventListener('DOMContentLoaded', () => {
     // Only proceed if all required elements exist
     if (slides.length > 0 && nextButton && prevButton && trackContainer) {
 
+      // Performance Optimization: Cache DOM queries
+      const slidesData = slides.map(slide => ({
+        element: slide,
+        heading: slide.querySelector('h2'),
+        interactiveElements: slide.querySelectorAll('a, button')
+      }));
+
       let currentSlideIndex = 0;
 
       // Function to update slide visibility
-      const updateSlides = (index) => {
-        // Hide all slides
-        slides.forEach(slide => {
-          slide.setAttribute('aria-hidden', 'true');
-          slide.style.display = 'none';
+      const updateSlides = (index, shouldFocus = false) => {
+        // Iterate over cached data instead of querying DOM
+        slidesData.forEach((data, i) => {
+          if (i === index) {
+             // Show current slide
+            data.element.setAttribute('aria-hidden', 'false');
+            data.element.style.display = 'block';
+
+            // Restore tabindex for interactive elements
+            data.interactiveElements.forEach(el => el.removeAttribute('tabindex'));
+
+            // Accessibility focus logic
+            if (shouldFocus && data.heading) {
+              data.heading.focus();
+            }
+          } else {
+            // Hide other slides
+            data.element.setAttribute('aria-hidden', 'true');
+            data.element.style.display = 'none';
+
+             // Remove from tab order
+            data.interactiveElements.forEach(el => el.setAttribute('tabindex', '-1'));
+          }
         });
-
-        // Show current slide
-        const currentSlide = slides[index];
-        currentSlide.setAttribute('aria-hidden', 'false');
-        currentSlide.style.display = 'block';
-
-        // Ensure accessibility focus logic if needed
-        // currentSlide.querySelector('h2').focus();
       };
 
       // Initialize
@@ -98,13 +115,13 @@ document.addEventListener('DOMContentLoaded', () => {
       // Next Button
       nextButton.addEventListener('click', () => {
         currentSlideIndex = (currentSlideIndex + 1) % slides.length;
-        updateSlides(currentSlideIndex);
+        updateSlides(currentSlideIndex, true); // Pass true to focus heading
       });
 
       // Prev Button
       prevButton.addEventListener('click', () => {
         currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
-        updateSlides(currentSlideIndex);
+        updateSlides(currentSlideIndex, true); // Pass true to focus heading
       });
     }
   }
