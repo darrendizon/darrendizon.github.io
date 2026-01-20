@@ -1,141 +1,110 @@
-// --- Original functionality ---
-function sayHello() {
-  alert("Hello! Thanks for clicking around my website.");
-}
+document.addEventListener('DOMContentLoaded', () => {
+  // Elements
+  const menuToggle = document.querySelector('.menu-toggle');
+  const menuClose = document.querySelector('.menu-close');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const contrastToggle = document.querySelector('.contrast-toggle');
+  const body = document.body;
 
-function clickedName(event) {
-  alert("You clicked on the creator, Darren Dizon!");
-}
+  // Guard Clauses
+  if (!menuToggle || !menuClose || !mobileMenu || !contrastToggle) {
+    console.warn('One or more navigation elements are missing.');
+    return;
+  }
 
-const myHeading = document.getElementById("main-heading");
-// Added check to make sure element exists before adding listener
-if (myHeading) {
-  myHeading.addEventListener("click", sayHello);
-}
+  // Menu Logic
+  function openMenu() {
+    mobileMenu.setAttribute('aria-hidden', 'false');
+    menuToggle.setAttribute('aria-expanded', 'true');
+    mobileMenu.focus(); // Accessibility focus management
+  }
 
-const myNameLink = document.querySelector('a[href*="linktr.ee"]');
-if (myNameLink) {
-  myNameLink.addEventListener("click", clickedName);
-}
+  function closeMenu() {
+    mobileMenu.setAttribute('aria-hidden', 'true');
+    menuToggle.setAttribute('aria-expanded', 'false');
+    menuToggle.focus(); // Return focus
+  }
 
-// --- NEW: Accessible Menu Logic ---
-const navLinks = document.querySelectorAll('.nav-link');
+  menuToggle.addEventListener('click', openMenu);
+  menuClose.addEventListener('click', closeMenu);
 
-function updateMenu(event) {
-  // 1. Remove active state from all links
-  navLinks.forEach(link => {
-    link.classList.remove('active');
-    link.removeAttribute('aria-current');
-    
-    // Remove the hidden "Current Page" text span if it exists
-    const span = link.querySelector('.sr-only');
-    if (span) {
-      span.remove();
+  // Close menu on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && mobileMenu.getAttribute('aria-hidden') === 'false') {
+      closeMenu();
     }
   });
 
-  // 2. Add active state to the clicked link
-  const clickedLink = event.currentTarget;
-  clickedLink.classList.add('active');
-  clickedLink.setAttribute('aria-current', 'page');
+  // Contrast / Text Size Toggle Logic
+  // Toggles between: Normal -> Large Text -> Dark Mode -> Normal
+  const modes = ['light-mode', 'large-text', 'dark-mode'];
+  let currentModeIndex = 0;
 
-  // 3. Add the hidden text for Screen Readers
-  const currentSpan = document.createElement('span');
-  currentSpan.className = 'sr-only';
-  currentSpan.textContent = '(Current Page)';
-  clickedLink.appendChild(currentSpan);
-}
+  contrastToggle.addEventListener('click', () => {
+    // Remove current mode class
+    body.classList.remove(modes[currentModeIndex]);
 
-// Attach click event to all menu links
-navLinks.forEach(link => {
-  link.addEventListener('click', updateMenu);
-});
+    // Increment index
+    currentModeIndex = (currentModeIndex + 1) % modes.length;
 
-// --- Mobile Navigation Toggle ---
-const navToggle = document.querySelector('.nav-toggle');
-const navList = document.querySelector('.nav-list');
+    // Add new mode class
+    body.classList.add(modes[currentModeIndex]);
 
-if (navToggle && navList) {
-  navToggle.addEventListener('click', () => {
-    // Toggle the 'active' class to show/hide the menu
-    navList.classList.toggle('active');
-
-    // Update the aria-expanded attribute for accessibility
-    const isExpanded = navList.classList.contains('active');
-    navToggle.setAttribute('aria-expanded', isExpanded);
-
-    // Optional: Focus management can be added here if needed
+    console.log(`Switched to ${modes[currentModeIndex]}`);
   });
 
-  // Close menu when a link is clicked (UX improvement for single page feel or mobile)
-  navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      if (navList.classList.contains('active')) {
-        navList.classList.remove('active');
-        navToggle.setAttribute('aria-expanded', 'false');
-      }
+  // Optional: Play button placeholder logic (just an alert for now)
+  const playButtons = document.querySelectorAll('.play-button');
+  playButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      alert('This is a placeholder for the video player.');
     });
   });
-}
+});
 
-// --- Apple Music Carousel Logic (Merged) ---
-document.addEventListener('DOMContentLoaded', () => {
+  // Carousel Logic
   const track = document.getElementById('track');
+  if (track) {
+    const slides = Array.from(track.children);
+    const nextButton = document.querySelector('.carousel-nav-btn.next');
+    const prevButton = document.querySelector('.carousel-nav-btn.prev');
+    const trackContainer = document.querySelector('.track-container');
 
-  // Guard clause: if carousel track doesn't exist (e.g., on home page), stop here
-  if (!track) return;
+    // Only proceed if all required elements exist
+    if (slides.length > 0 && nextButton && prevButton && trackContainer) {
 
-  const slides = Array.from(track.children);
-  const nextButton = document.querySelector('.carousel-nav-btn.next');
-  const prevButton = document.querySelector('.carousel-nav-btn.prev');
+      let currentSlideIndex = 0;
 
-  let currentSlideIndex = 0;
-
-  const updateSlide = (index, shouldFocus = false) => {
-    // 1. Visual Move (Uses current slide width for responsiveness)
-    if (slides.length > 0) {
-      const slideWidth = slides[0].getBoundingClientRect().width;
-      const amountToMove = slideWidth * index;
-      track.style.transform = 'translateX(-' + amountToMove + 'px)';
-
-      // 2. Accessibility Attributes
-      slides.forEach((slide, i) => {
-        const heading = slide.querySelector('h2');
-
-        if (i === index) {
-          slide.setAttribute('aria-hidden', 'false');
-          slide.querySelectorAll('a, button').forEach(el => el.removeAttribute('tabindex'));
-
-          if (shouldFocus && heading) {
-            heading.focus({ preventScroll: true });
-          }
-        } else {
+      // Function to update slide visibility
+      const updateSlides = (index) => {
+        // Hide all slides
+        slides.forEach(slide => {
           slide.setAttribute('aria-hidden', 'true');
-          slide.querySelectorAll('a, button').forEach(el => el.setAttribute('tabindex', '-1'));
-        }
+          slide.style.display = 'none';
+        });
+
+        // Show current slide
+        const currentSlide = slides[index];
+        currentSlide.setAttribute('aria-hidden', 'false');
+        currentSlide.style.display = 'block';
+
+        // Ensure accessibility focus logic if needed
+        // currentSlide.querySelector('h2').focus();
+      };
+
+      // Initialize
+      updateSlides(currentSlideIndex);
+
+      // Next Button
+      nextButton.addEventListener('click', () => {
+        currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+        updateSlides(currentSlideIndex);
+      });
+
+      // Prev Button
+      prevButton.addEventListener('click', () => {
+        currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
+        updateSlides(currentSlideIndex);
       });
     }
-  };
-
-  if (nextButton) {
-    nextButton.addEventListener('click', () => {
-      currentSlideIndex = (currentSlideIndex + 1) % slides.length;
-      updateSlide(currentSlideIndex, true);
-    });
   }
-
-  if (prevButton) {
-    prevButton.addEventListener('click', () => {
-      currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
-      updateSlide(currentSlideIndex, true);
-    });
-  }
-
-  // Handle Resize
-  window.addEventListener('resize', () => {
-    updateSlide(currentSlideIndex, false);
-  });
-
-  // Initial Load
-  updateSlide(0, false);
-});

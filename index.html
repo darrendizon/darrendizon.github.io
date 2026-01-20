@@ -5,129 +5,334 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Welcome | Darren Dizon</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="light-mode">
 
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <nav aria-label="Main Navigation" class="main-nav">
-    <div class="nav-container">
-      <a href="#" class="nav-logo" aria-label="Darren Dizon Home">Darren Dizon</a>
-
-      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-list">
-        <span class="hamburger-icon"></span>
-      </button>
-
-      <ul id="nav-list" class="nav-list">
-        <li>
-          <a href="#" class="nav-link active" aria-current="page">
-            Home <span class="sr-only">(Current Page)</span>
-          </a>
-        </li>
-        <li>
-          <a href="apple-music/index.html" class="nav-link">Apple Music</a>
-        </li>
-      </ul>
+  <!-- Header -->
+  <header class="site-header">
+    <!-- Top Alert Bar -->
+    <div class="alert-bar">
+      <div class="container">
+        <p><strong>Welcome to my accessible portfolio. <a href="#">Contact me</a> to learn more about my work.</strong></p>
+      </div>
     </div>
-  </nav>
+
+    <!-- Main Navigation Bar -->
+    <div class="main-bar">
+      <div class="container flex-parent">
+        <div class="logo-container">
+          <a href="/" aria-label="Darren Dizon Home" class="text-logo">
+            Darren Dizon
+          </a>
+        </div>
+
+        <div class="nav-controls">
+          <button class="menu-toggle btn btn-dark" aria-label="Open Menu" aria-controls="mobile-menu" aria-expanded="false">
+            <span class="icon">menu</span> Menu
+          </button>
+
+          <button class="contrast-toggle btn btn-dark" aria-label="Text Size and Contrast">
+            <span class="icon">visibility</span> Text Size & Contrast
+          </button>
+
+          <button class="search-toggle btn btn-dark" aria-label="Search">
+            <span class="icon">search</span>
+          </button>
+
+          <a href="#" class="btn btn-cta">Contact</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide-out Menu Drawer -->
+    <div id="mobile-menu" class="menu-drawer" aria-hidden="true" tabindex="-1">
+      <div class="menu-header">
+        <div class="logo-container">
+           <a href="/" class="text-logo">Darren Dizon</a>
+        </div>
+        <button class="menu-close btn btn-dark" aria-label="Close Menu">
+          <span class="icon">close</span> Menu
+        </button>
+      </div>
+
+      <div class="menu-content">
+        <div class="menu-primary">
+          <nav aria-label="Primary Navigation">
+            <ul class="nav-list">
+              <li><a href="#">About Me</a></li>
+              <li><a href="#">Portfolio</a></li>
+              <li><a href="#">Services</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="apple-music/index.html">Apple Music</a></li>
+            </ul>
+          </nav>
+        </div>
+        <div class="menu-secondary">
+           <ul class="nav-list-secondary">
+             <li><a href="#">Consulting</a></li>
+             <li><a href="#">Speaking</a></li>
+             <li><a href="#">Contact</a></li>
+           </ul>
+           <a href="#" class="btn btn-cta btn-block">Get in Touch</a>
+        </div>
+        <div class="font-callout">
+          <p>This site uses the accessible font <a href="#">Atkinson Hyperlegible</a>.</p>
+        </div>
+      </div>
+    </div>
+  </header>
 
   <main id="main-content">
-    <header>
-      <h1>Welcome, dear visitor!</h1>
-      <p class="subtitle">A space for my random fun links and projects.</p>
-    </header>
 
-    <section id="intro-section" aria-label="Introduction">
-      <p>
-        Welcome to my website! I hope you enjoy exploring. This site was created by 
-        <a href="https://linktr.ee/DarrenDizon" 
-           target="_blank" 
-           rel="noopener" 
-           aria-label="Darren Dizon, opens in Linktree in a new tab">
-           Darren Dizon
-        </a>.
-      </p>
-      <p>Stay tuned for more updates soon!</p>
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="container flex-parent">
+        <div class="hero-content">
+          <h1>Designing for Inclusivity</h1>
+          <p class="hero-subtext">Creating accessible digital experiences that empower everyone, regardless of ability.</p>
+          <p class="hero-subtext">Let's build something beautiful together.</p>
+          <a href="#" class="btn btn-cta-sky">View Portfolio</a>
+        </div>
+        <div class="hero-video">
+          <!-- Placeholder for video -->
+          <div class="video-placeholder">
+             <img src="https://placehold.co/900x600/253746/FFF?text=Hero+Video+Placeholder" alt="Video Placeholder">
+             <button class="play-button" aria-label="Play Video"><span class="icon">play_arrow</span></button>
+          </div>
+          <p class="video-caption"><strong>Accessibility First:</strong> All media on this site includes captions and descriptions.</p>
+        </div>
+      </div>
     </section>
 
-    <section id="links-section" aria-labelledby="links-heading">
-      <h2 id="links-heading">Random fun links of interest</h2>
-      <p>Below are some links I find interesting. I'm still learning to code, but I'm proud of the progress I've made on this layout.</p>
-      <blockquote><strong>Fun fact:</strong> This website took me almost three hours to code!</blockquote>
-
-      <ul>
-        <li>
-          <a href="https://quorumlanguage.com/selection.html" 
-             target="_blank" 
-             rel="noopener" 
-             aria-label="Quorum Hour of Code, opens in a new tab">
-             Quorum Hour of Code
-          </a> 
-          — An accessible coding language built for visually impaired students.
-        </li>
-        <li>
-          <a href="https://store.humanware.com/hus/ray-ban-meta-wayfarer-gen-2.html" 
-             target="_blank" 
-             rel="noopener" 
-             aria-label="Ray-Ban Meta at HumanWare, opens in a new tab">
-             Ray-Ban Meta at HumanWare
-          </a> 
-          — Smart glasses integrated with accessibility features like "Be My Eyes."
-        </li>
-        <li>
-          <a href="https://www.applevis.com/" 
-             target="_blank" 
-             rel="noopener" 
-             aria-label="AppleVis, opens in a new tab">
-             AppleVis
-          </a> 
-          — A community hub for blind and low-vision users of Apple products.
-        </li>
-        <li>
-          <a href="https://www.aph.org/national-coding-symposium/" 
-             target="_blank" 
-             rel="noopener" 
-             aria-label="APH National Coding Symposium, opens in a new tab">
-             APH National Coding Symposium
-          </a> 
-          — Founded by the 
-          <a href="https://www.csb-cde.ca.gov/about/events/nationalcodingsymposium.aspx" 
-             target="_blank" 
-             rel="noopener" 
-             aria-label="California School for the Blind, opens in a new tab">
-             California School for the Blind (CSB)
-          </a> 
-          and the 
-          <a href="https://www.aph.org" 
-             target="_blank" 
-             rel="noopener" 
-             aria-label="American Printing House for the Blind, opens in a new tab">
-             American Printing House for the Blind
-          </a>.
-        </li>
-        <li>
-          <a href="apple-music/index.html" aria-label="Apple Music Page">
-            Apple Music Page
-          </a>
-          - Check out my favorite Apple Music offers and follow me on Apple Music.
-        </li>
-      </ul>
+    <!-- Services Section -->
+    <section class="signup-section bg-light">
+      <div class="container">
+        <div class="section-header">
+          <h2>My Expertise</h2>
+          <p><strong>Web Development. Accessibility Audits. Design.</strong></p>
+        </div>
+        <div class="signup-grid">
+          <div class="signup-card">
+            <h3><a href="#">Web Development</a></h3>
+            <div class="card-image">
+              <img src="https://placehold.co/980x653/EEE/333?text=Development" alt="Code on a screen">
+            </div>
+          </div>
+          <div class="signup-card">
+            <h3><a href="#">Accessibility</a></h3>
+            <div class="card-image">
+              <img src="https://placehold.co/980x653/EEE/333?text=Accessibility" alt="Accessibility testing">
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
+
+    <!-- Offerings Section -->
+    <section class="offerings-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Navigate the Digital World.<br>With Confidence.</h2>
+          <p>I provide comprehensive solutions to ensure your digital presence is open to all users.</p>
+        </div>
+        <div class="offerings-controls">
+          <a href="#" class="btn btn-cta-sky">All Services</a>
+          <a href="#" class="btn btn-cta-sky">Consulting</a>
+          <a href="#" class="btn btn-cta-sky">Audits</a>
+        </div>
+
+        <div class="offerings-grid">
+          <!-- Card 1 -->
+          <div class="offering-card">
+            <div class="card-image">
+              <img src="https://placehold.co/800x533/253746/FFF?text=Audit" alt="Audit Report">
+            </div>
+            <div class="card-content">
+              <span class="card-type">Service</span>
+              <span class="card-location">Remote</span>
+              <h3><a href="#">Full Site Accessibility Audit</a></h3>
+              <p>A complete review of your website against WCAG 2.1 guidelines with actionable reporting.</p>
+              <div class="card-date">Available Now</div>
+            </div>
+          </div>
+          <!-- Card 2 -->
+          <div class="offering-card">
+            <div class="card-image">
+              <img src="https://placehold.co/800x533/253746/FFF?text=Training" alt="Workshop">
+            </div>
+            <div class="card-content">
+              <span class="card-type">Workshop</span>
+              <span class="card-location">In-Person / Online</span>
+              <h3><a href="#">Inclusive Design Workshop</a></h3>
+              <p>Train your team on the principles of inclusive design and how to implement them.</p>
+              <div class="card-date">March 15, 2026</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="schedule-links">
+           <div class="link-block">
+             <h4>Consulting Schedule</h4>
+             <a href="#" class="btn btn-cta-sky">Book a Call</a>
+           </div>
+           <div class="link-block">
+             <h4>Upcoming Workshops</h4>
+             <a href="#" class="btn btn-cta-sky">View Calendar</a>
+           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Info Section -->
+    <section class="info-section bg-light">
+      <div class="container flex-parent">
+        <div class="info-text">
+          <h2>There’s a Lot to Learn.<br>That’s Why I’m Here.</h2>
+          <p>Understanding accessibility standards can be challenging. It doesn’t have to be. I simplify the process for you.</p>
+          <a href="#" class="btn btn-cta-sky">Learn About Vision</a>
+        </div>
+        <div class="info-video">
+           <div class="video-placeholder">
+             <img src="https://placehold.co/900x600/EEE/333?text=Explainer+Video" style="object-fit: cover; width: 100%; height: 100%;" alt="Explainer video thumbnail">
+             <button class="play-button" aria-label="Play Video"><span class="icon">play_arrow</span></button>
+           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- News Section -->
+    <section class="news-section">
+      <div class="container">
+        <h2>Latest Insights</h2>
+        <div class="news-grid">
+          <div class="news-card">
+            <div class="card-image">
+              <img src="https://placehold.co/800x533/253746/FFF?text=Award" alt="Award trophy">
+            </div>
+            <div class="card-content">
+              <div class="meta">December 2nd, 2025</div>
+              <h3><a href="#">Darren Dizon Recognized for Excellence in Accessible Design</a></h3>
+            </div>
+          </div>
+          <div class="news-card">
+            <div class="card-image">
+              <img src="https://placehold.co/800x533/253746/FFF?text=Blog+Post" alt="Writing braille">
+            </div>
+            <div class="card-content">
+              <div class="meta">August 14th, 2025</div>
+              <h3><a href="#">The Future of Screen Readers and AI</a></h3>
+            </div>
+          </div>
+        </div>
+        <div class="center-cta">
+          <a href="#" class="btn btn-cta-sky">Read More</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Locations Section -->
+    <section class="locations-section bg-light">
+      <div class="container">
+        <div class="section-header">
+          <h2>Global Reach.<br>Personal Touch.</h2>
+          <p>Connect with me remotely or meet in person at select hubs.</p>
+        </div>
+        <div class="locations-grid">
+          <div class="location-col">
+            <h3>Hubs</h3>
+            <a href="#" class="map-link">View Locations</a>
+            <div class="location-image">
+              <img src="https://placehold.co/1050x554/EEE/333?text=Map" alt="Map of locations">
+            </div>
+          </div>
+          <div class="location-col">
+            <h3>Remote</h3>
+            <div class="location-image">
+              <img src="https://placehold.co/525x277/EEE/333?text=Remote+Work" alt="Online Meeting">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Staff Section -->
+    <section class="staff-section">
+      <div class="container flex-parent">
+        <div class="staff-text">
+          <h2>Experts Who Care</h2>
+          <p>Partner with professionals dedicated to making the web a better place.</p>
+          <a href="#" class="btn btn-cta-sky">Meet The Team</a>
+        </div>
+        <div class="staff-feature bg-dark">
+          <img src="https://placehold.co/300x244/FFF/333?text=Profile" alt="Darren Dizon">
+          <h3>Darren Dizon - Lead Accessibility Engineer</h3>
+          <p>"I enjoy helping organizations adjust to modern standards by giving them the tools to sustain meaningful, accessible products."</p>
+        </div>
+      </div>
+    </section>
+
   </main>
 
-  <footer>
-    <hr>
-    <p>
-      &copy; 2019—2026 <strong>Darren Dizon</strong>. <br>
-      Under the direction of Matthew Beckwith from 
-      <a href="https://www.brailleinstitute.org" 
-         target="_blank" 
-         rel="noopener" 
-         aria-label="Braille Institute, opens in a new tab">
-         Braille Institute
-      </a>. <br>
-      <em>Built with HTML, CSS, and JavaScript. All Rights Reserved.</em>
-    </p>
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <h3>Give Me Your Feedback</h3>
+        <p>Help me improve this website by taking a <a href="#">quick survey here</a>.</p>
+      </div>
+
+      <div class="footer-main flex-parent">
+        <div class="footer-info">
+          <a href="/" class="text-logo-footer">Darren Dizon</a>
+          <p><a href="mailto:hello@darrendizon.com">hello@darrendizon.com</a></p>
+          <p>123 Accessibility Lane<br>Web City, Internet 90000</p>
+          <a href="#" class="btn btn-cta-sky">Contact Me</a>
+        </div>
+
+        <div class="footer-donate">
+          <div class="donate-text">
+            <p>Your support helps create a more inclusive internet.</p>
+            <p>Contribute today to make a difference.</p>
+          </div>
+          <a href="#" class="btn btn-cta-sky">Support</a>
+          <div class="footer-image">
+             <img src="https://placehold.co/700x996/253746/FFF?text=Community" alt="Community">
+          </div>
+        </div>
+
+        <div class="footer-social">
+          <ul class="social-icons">
+            <li><a href="#" aria-label="Facebook">Facebook</a></li>
+            <li><a href="#" aria-label="Twitter">X</a></li>
+            <li><a href="#" aria-label="Instagram">Instagram</a></li>
+            <li><a href="#" aria-label="YouTube">YouTube</a></li>
+            <li><a href="#" aria-label="LinkedIn">LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="webby-award">
+          <img src="https://placehold.co/100x100/EEE/333?text=Award" alt="Award Badge">
+          <p><strong>Accessibility Award Winner</strong></p>
+        </div>
+
+        <div class="footer-links">
+          <a href="#">Accessibility Statement</a> |
+          <a href="#">Locations</a> |
+          <a href="#">Careers</a> |
+          <a href="#">Volunteer</a> |
+          <a href="#">Join My Mailing List</a> |
+          <a href="#">Privacy & Legal</a>
+        </div>
+
+        <p class="copyright">© 2026 | Darren Dizon | All Rights Reserved</p>
+      </div>
+    </div>
   </footer>
 
   <script src="script.js"></script>

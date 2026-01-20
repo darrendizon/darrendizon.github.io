@@ -1,125 +1,239 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mobile Optimized Apple Music Offers</title>
-<link rel="stylesheet" href="../style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Apple Music Offers | Darren Dizon</title>
+  <link rel="stylesheet" href="../style.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="light-mode">
 
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <nav aria-label="Main Navigation" class="main-nav">
-    <div class="nav-container">
-      <a href="../index.html" class="nav-logo" aria-label="Darren Dizon Home">Darren Dizon</a>
-
-      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-list">
-        <span class="hamburger-icon"></span>
-      </button>
-
-      <ul id="nav-list" class="nav-list">
-        <li>
-          <a href="../index.html" class="nav-link">Home</a>
-        </li>
-        <li>
-          <a href="#" class="nav-link active" aria-current="page">
-            Apple Music <span class="sr-only">(Current Page)</span>
-          </a>
-        </li>
-      </ul>
+  <!-- Header -->
+  <header class="site-header">
+    <!-- Top Alert Bar -->
+    <div class="alert-bar">
+      <div class="container">
+        <p><strong>Welcome to my accessible portfolio. <a href="#">Contact me</a> to learn more about my work.</strong></p>
+      </div>
     </div>
-  </nav>
+
+    <!-- Main Navigation Bar -->
+    <div class="main-bar">
+      <div class="container flex-parent">
+        <div class="logo-container">
+          <a href="../index.html" aria-label="Darren Dizon Home" class="text-logo">
+            Darren Dizon
+          </a>
+        </div>
+
+        <div class="nav-controls">
+          <button class="menu-toggle btn btn-dark" aria-label="Open Menu" aria-controls="mobile-menu" aria-expanded="false">
+            <span class="icon">menu</span> Menu
+          </button>
+
+          <button class="contrast-toggle btn btn-dark" aria-label="Text Size and Contrast">
+            <span class="icon">visibility</span> Text Size & Contrast
+          </button>
+
+          <button class="search-toggle btn btn-dark" aria-label="Search">
+            <span class="icon">search</span>
+          </button>
+
+          <a href="#" class="btn btn-cta">Contact</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide-out Menu Drawer -->
+    <div id="mobile-menu" class="menu-drawer" aria-hidden="true" tabindex="-1">
+      <div class="menu-header">
+        <div class="logo-container">
+           <a href="../index.html" class="text-logo">Darren Dizon</a>
+        </div>
+        <button class="menu-close btn btn-dark" aria-label="Close Menu">
+          <span class="icon">close</span> Menu
+        </button>
+      </div>
+
+      <div class="menu-content">
+        <div class="menu-primary">
+          <nav aria-label="Primary Navigation">
+            <ul class="nav-list">
+              <li><a href="../#">About Me</a></li>
+              <li><a href="../#">Portfolio</a></li>
+              <li><a href="../#">Services</a></li>
+              <li><a href="../#">Blog</a></li>
+              <li><a href="index.html" aria-current="page">Apple Music</a></li>
+            </ul>
+          </nav>
+        </div>
+        <div class="menu-secondary">
+           <ul class="nav-list-secondary">
+             <li><a href="../#">Consulting</a></li>
+             <li><a href="../#">Speaking</a></li>
+             <li><a href="../#">Contact</a></li>
+           </ul>
+           <a href="#" class="btn btn-cta btn-block">Get in Touch</a>
+        </div>
+        <div class="font-callout">
+          <p>This site uses the accessible font <a href="#">Atkinson Hyperlegible</a>.</p>
+        </div>
+      </div>
+    </div>
+  </header>
 
   <main id="main-content">
 
-    <header style="text-align: center; padding: 20px;">
-      <a href="https://music.apple.com/profile/darren_d30" target="_blank" rel="noopener noreferrer" style="font-size: 1.2rem; font-weight: bold; color: #FFA500; text-decoration: none;">
-        Follow Darren on Apple Music
-      </a>
-    </header>
-
-    <section
-      class="carousel"
-      aria-label="Apple Music Subscription Offers"
-      aria-roledescription="carousel">
-
-      <button class="carousel-nav-btn prev" aria-label="Previous Offer">
-        &#10094;
-      </button>
-
-      <div class="track-container" aria-live="polite">
-        <ul class="carousel-track" id="track">
-
-          <li class="carousel-slide" id="slide1" aria-hidden="false">
-            <h2 tabindex="-1">New devices</h2>
-            <span class="offer-price">3 months free, then $10.99/month</span>
-            <p class="offer-desc">
-              Get started if you’ve purchased an iPhone, iPad, Mac, AirPods, or AppleTV.
-            </p>
-            <a href="https://offers.applemusic.apple/new-device-offer?itscg=10000&itsct=music_overview_plan_hwbn"
-               class="cta-button"
-               target="_blank"
-               aria-label="Try 3 months free. Subscribe now. Opens in Apple's website">
-               Try 3 months free
-            </a>
-          </li>
-
-          <li class="carousel-slide" id="slide2" aria-hidden="true">
-            <h2 tabindex="-1">Student Plan</h2>
-            <span class="offer-price">1 month free, then $5.99/month</span>
-            <p class="offer-desc">
-              <strong>Apple Music and Apple TV+</strong>.<br>
-              Students get 1 month of Apple Music free, plus access to Apple TV+.
-            </p>
-            <a href="https://music.apple.com/student?itscg=10000&itsct=music_overview_plan_student"
-               class="cta-button"
-               target="_blank"
-               aria-label="Try 1 month free. Subscribe now. Opens in Apple Music App with Student Pop-up">
-               Try 1 month free
-            </a>
-          </li>
-
-          <li class="carousel-slide" id="slide3" aria-hidden="true">
-            <h2 tabindex="-1">Family Plan</h2>
-            <span class="offer-price">1 month free, then $16.99/month</span>
-            <p class="offer-desc">
-              Share Apple Music with up to five people with a Family Plan.
-            </p>
-            <a href="https://music.apple.com/deeplink?app=music&p=subscribe-family&itscg=10000&itsct=music_overview_plan_family"
-               class="cta-button"
-               target="_blank"
-               aria-label="Try 1 month free. Subscribe now. Opens in Apple Music app with Family pricing">
-               Try 1 month free
-            </a>
-          </li>
-
-          <li class="carousel-slide" id="slide4" aria-hidden="true">
-            <h2 tabindex="-1">Apple One</h2>
-            <span class="offer-price">1 month free, then $25.95/month</span>
-            <p class="offer-desc">
-              Bundle up to 6 great services for 1 low monthly price. Please see the link below for up-to-date pricing information. Multiple plans are available.
-            </p>
-            <a href="https://one.apple.com/us/music?itscg=10000&itsct=music_overview_plan_appleone"
-               class="cta-button"
-               target="_blank"
-               aria-label="Try 1 month free. Subscribe now. Opens in Apple Music app with Apple One pricing">
-               Try 1 month free
-            </a>
-          </li>
-
-        </ul>
+    <div class="container">
+      <div class="apple-music-header">
+        <a href="https://music.apple.com/profile/darren_d30" target="_blank" rel="noopener noreferrer">
+          Follow Darren on Apple Music
+        </a>
       </div>
 
-      <button class="carousel-nav-btn next" aria-label="Next Offer">
-        &#10095;
-      </button>
+      <section
+        class="carousel"
+        aria-label="Apple Music Subscription Offers"
+        aria-roledescription="carousel">
 
-    </section>
+        <button class="carousel-nav-btn prev" aria-label="Previous Offer">
+          &#10094;
+        </button>
+
+        <div class="track-container" aria-live="polite">
+          <ul class="carousel-track" id="track">
+
+            <li class="carousel-slide" id="slide1" aria-hidden="false">
+              <h2 tabindex="-1">New devices</h2>
+              <span class="offer-price">3 months free, then $10.99/month</span>
+              <p class="offer-desc">
+                Get started if you’ve purchased an iPhone, iPad, Mac, AirPods, or AppleTV.
+              </p>
+              <a href="https://offers.applemusic.apple/new-device-offer?itscg=10000&itsct=music_overview_plan_hwbn"
+                 class="cta-button"
+                 target="_blank"
+                 aria-label="Try 3 months free. Subscribe now. Opens in Apple's website">
+                 Try 3 months free
+              </a>
+            </li>
+
+            <li class="carousel-slide" id="slide2" aria-hidden="true">
+              <h2 tabindex="-1">Student Plan</h2>
+              <span class="offer-price">1 month free, then $5.99/month</span>
+              <p class="offer-desc">
+                <strong>Apple Music and Apple TV+</strong>.<br>
+                Students get 1 month of Apple Music free, plus access to Apple TV+.
+              </p>
+              <a href="https://music.apple.com/student?itscg=10000&itsct=music_overview_plan_student"
+                 class="cta-button"
+                 target="_blank"
+                 aria-label="Try 1 month free. Subscribe now. Opens in Apple Music App with Student Pop-up">
+                 Try 1 month free
+              </a>
+            </li>
+
+            <li class="carousel-slide" id="slide3" aria-hidden="true">
+              <h2 tabindex="-1">Family Plan</h2>
+              <span class="offer-price">1 month free, then $16.99/month</span>
+              <p class="offer-desc">
+                Share Apple Music with up to five people with a Family Plan.
+              </p>
+              <a href="https://music.apple.com/deeplink?app=music&p=subscribe-family&itscg=10000&itsct=music_overview_plan_family"
+                 class="cta-button"
+                 target="_blank"
+                 aria-label="Try 1 month free. Subscribe now. Opens in Apple Music app with Family pricing">
+                 Try 1 month free
+              </a>
+            </li>
+
+            <li class="carousel-slide" id="slide4" aria-hidden="true">
+              <h2 tabindex="-1">Apple One</h2>
+              <span class="offer-price">1 month free, then $25.95/month</span>
+              <p class="offer-desc">
+                Bundle up to 6 great services for 1 low monthly price. Please see the link below for up-to-date pricing information. Multiple plans are available.
+              </p>
+              <a href="https://one.apple.com/us/music?itscg=10000&itsct=music_overview_plan_appleone"
+                 class="cta-button"
+                 target="_blank"
+                 aria-label="Try 1 month free. Subscribe now. Opens in Apple Music app with Apple One pricing">
+                 Try 1 month free
+              </a>
+            </li>
+
+          </ul>
+        </div>
+
+        <button class="carousel-nav-btn next" aria-label="Next Offer">
+          &#10095;
+        </button>
+
+      </section>
+    </div>
 
   </main>
 
-<script src="../script.js"></script>
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <h3>Give Me Your Feedback</h3>
+        <p>Help me improve this website by taking a <a href="#">quick survey here</a>.</p>
+      </div>
 
+      <div class="footer-main flex-parent">
+        <div class="footer-info">
+          <a href="../index.html" class="text-logo-footer">Darren Dizon</a>
+          <p><a href="mailto:hello@darrendizon.com">hello@darrendizon.com</a></p>
+          <p>123 Accessibility Lane<br>Web City, Internet 90000</p>
+          <a href="#" class="btn btn-cta-sky">Contact Me</a>
+        </div>
+
+        <div class="footer-donate">
+          <div class="donate-text">
+            <p>Your support helps create a more inclusive internet.</p>
+            <p>Contribute today to make a difference.</p>
+          </div>
+          <a href="#" class="btn btn-cta-sky">Support</a>
+          <div class="footer-image">
+             <img src="https://placehold.co/700x996/253746/FFF?text=Community" alt="Community">
+          </div>
+        </div>
+
+        <div class="footer-social">
+          <ul class="social-icons">
+            <li><a href="#" aria-label="Facebook">Facebook</a></li>
+            <li><a href="#" aria-label="Twitter">X</a></li>
+            <li><a href="#" aria-label="Instagram">Instagram</a></li>
+            <li><a href="#" aria-label="YouTube">YouTube</a></li>
+            <li><a href="#" aria-label="LinkedIn">LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="webby-award">
+          <img src="https://placehold.co/100x100/EEE/333?text=Award" alt="Award Badge">
+          <p><strong>Accessibility Award Winner</strong></p>
+        </div>
+
+        <div class="footer-links">
+          <a href="#">Accessibility Statement</a> |
+          <a href="#">Locations</a> |
+          <a href="#">Careers</a> |
+          <a href="#">Volunteer</a> |
+          <a href="#">Join My Mailing List</a> |
+          <a href="#">Privacy & Legal</a>
+        </div>
+
+        <p class="copyright">© 2026 | Darren Dizon | All Rights Reserved</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
 </body>
 </html>
