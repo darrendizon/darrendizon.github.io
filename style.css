@@ -1,119 +1,106 @@
-/* Modern Light Theme */
-:root {
-  --bg-gradient: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
-  --text-color: #2d3436;
-  --highlight-orange: #d35400; /* Darkened for better contrast/accessibility */
-  --highlight-purple: #8e44ad;
-  --highlight-blue: #0984e3;
-  --lime-professional: #cddc39; /* Muted Lime */
-  --lime-text: #263238; /* Dark text for contrast against lime */
-  --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+/* Ensure all elements calculate width correctly */
+* {
+  box-sizing: border-box;
 }
 
 body {
-  background: var(--bg-gradient);
-  color: var(--text-color);
-  font-family: var(--font-main);
-  line-height: 1.8;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f2f5;
+  color: #333;
   margin: 0;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+  padding: 20px;
+  line-height: 1.6;
 }
 
-main {
-  flex: 1; /* Pushes footer to the bottom */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 40px;
-}
-
-h1 {
-  font-size: 3rem;
-  margin-bottom: 20px;
-  color: var(--text-color);
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  text-align: center;
-}
-
-p {
-  font-size: 1.2rem;
-  max-width: 600px;
-  margin-bottom: 40px;
-  text-align: center;
-  color: #636e72;
-}
-
-/* --- Accessibility: Screen Reader Only Text --- */
-.sr-only {
+/* --- Accessibility Skip Link --- */
+.skip-link {
   position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
+  top: -100px;
+  left: 0;
+  background: #000;
+  color: #fff;
+  padding: 10px;
+  z-index: 100;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* --- Layout Grid --- */
+/* This controls the columns */
+#main-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two equal columns */
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* These elements span across the full top width */
+#main-heading,
+.subtitle {
+  grid-column: 1 / -1;
+  text-align: center;
+}
+
+/* --- Section Cards --- */
+section {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Intro Section (Left) */
+#intro-section {
+  border-top: 5px solid #007bff;
+}
+
+/* Links Section (Right) */
+#links-section {
+  border-top: 5px solid #9b59b6;
 }
 
 /* --- Link Styling --- */
-.links-container {
-  display: flex;
-  gap: 30px;
-  font-size: 1.1rem;
+/* Target the Darren Dizon link specifically inside the intro */
+#intro-section a {
+  color: #d35400; /* Darker Accessible Orange */
+  font-weight: bold;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
 }
 
-a {
+#intro-section a:hover {
+  border-bottom: 2px solid #d35400;
+}
+
+/* Target the list links specifically */
+li a {
+  color: #6a1b9a; /* Deep Purple */
   text-decoration: underline;
-  text-underline-offset: 4px;
-  font-weight: 700;
-  transition: color 0.2s ease;
-  background: none;
-  border: none;
-  box-shadow: none;
-  padding: 0;
-}
-
-/* Accessibility: High visibility focus outline for keyboard navigation */
-a:focus {
-  outline: 3px solid var(--highlight-blue);
-  outline-offset: 4px;
-  border-radius: 2px;
-}
-
-/* Section 1: Orange */
-.link-orange {
-  color: var(--highlight-orange);
-}
-.link-orange:hover {
-  color: #a04000; /* Darker orange on hover */
-}
-
-/* Section 2: Purple */
-.link-purple {
-  color: var(--highlight-purple);
-}
-.link-purple:hover {
-  color: #6c3483; /* Darker purple on hover */
-}
-
-/* --- Footer Styling --- */
-footer {
-  width: 100%;
-  background-color: var(--lime-professional);
-  color: var(--lime-text);
-  text-align: center;
-  padding: 20px 0;
-  margin-top: auto;
-  border-top: 1px solid rgba(0,0,0,0.1);
-}
-
-footer p {
-  color: var(--lime-text); /* Override global p color for contrast */
-  margin: 0;
-  font-size: 1rem;
   font-weight: 600;
+}
+
+li a:hover {
+  background-color: #fff176;
+  color: #c62828;
+  text-decoration: none;
+}
+
+/* --- Footer --- */
+footer {
+  text-align: center;
+  margin-top: 40px;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* --- Mobile Responsiveness --- */
+/* If screen is smaller than 768px, stack columns vertically */
+@media (max-width: 768px) {
+  #main-content {
+    grid-template-columns: 1fr;
+  }
 }
