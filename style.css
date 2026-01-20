@@ -40,6 +40,15 @@ body.dark-mode {
   color: #fff;
 }
 
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6 {
+  color: #fff;
+}
+
 body.dark-mode a {
   color: #fcdc3e;
 }
@@ -211,6 +220,22 @@ h3 { font-size: 2rem; }
   padding: 1rem 0;
   box-shadow: 0 10px 0 var(--color-primary-light-blue);
   border-bottom: 2px solid var(--color-text-body);
+}
+
+/* Updated Text Logo Style */
+.text-logo, .text-logo-footer {
+  font-weight: 700;
+  font-size: 2rem;
+  color: var(--color-primary-dark-blue);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.text-logo-footer {
+  font-size: 1.8rem;
+  display: block;
+  margin-bottom: 1rem;
 }
 
 .logo {
