@@ -19,11 +19,9 @@ if (myNameLink) {
 }
 
 // --- NEW: Accessible Menu Logic ---
-const navLinks = document.querySelectorAll('.nav-link');
-
-function updateMenu(event) {
+function updateMenu(clickedLink) {
   // 1. Remove active state from all links
-  navLinks.forEach(link => {
+  document.querySelectorAll('.nav-link').forEach(link => {
     link.classList.remove('active');
     link.removeAttribute('aria-current');
     
@@ -35,7 +33,6 @@ function updateMenu(event) {
   });
 
   // 2. Add active state to the clicked link
-  const clickedLink = event.currentTarget;
   clickedLink.classList.add('active');
   clickedLink.setAttribute('aria-current', 'page');
 
@@ -46,12 +43,7 @@ function updateMenu(event) {
   clickedLink.appendChild(currentSpan);
 }
 
-// Attach click event to all menu links
-navLinks.forEach(link => {
-  link.addEventListener('click', updateMenu);
-});
-
-// --- Mobile Navigation Toggle ---
+// --- Mobile Navigation Toggle & Event Delegation ---
 const navToggle = document.querySelector('.nav-toggle');
 const navList = document.querySelector('.nav-list');
 
@@ -63,18 +55,21 @@ if (navToggle && navList) {
     // Update the aria-expanded attribute for accessibility
     const isExpanded = navList.classList.contains('active');
     navToggle.setAttribute('aria-expanded', isExpanded);
-
-    // Optional: Focus management can be added here if needed
   });
 
-  // Close menu when a link is clicked (UX improvement for single page feel or mobile)
-  navLinks.forEach(link => {
-    link.addEventListener('click', () => {
+  // Use event delegation for nav links
+  navList.addEventListener('click', (event) => {
+    const clickedLink = event.target.closest('.nav-link');
+    if (clickedLink) {
+      // Update active state
+      updateMenu(clickedLink);
+
+      // Close mobile menu if it's active
       if (navList.classList.contains('active')) {
         navList.classList.remove('active');
         navToggle.setAttribute('aria-expanded', 'false');
       }
-    });
+    }
   });
 }
 
