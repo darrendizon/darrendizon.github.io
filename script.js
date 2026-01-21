@@ -75,6 +75,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
       let currentSlideIndex = 0;
 
+      // Debounce utility function
+      const debounce = (func, wait) => {
+        let timeout;
+        return function(...args) {
+          const context = this;
+          clearTimeout(timeout);
+          timeout = setTimeout(() => func.apply(context, args), wait);
+        };
+      };
+
       // Function to update slide visibility
       const updateSlides = (index) => {
         // Hide all slides
@@ -91,6 +101,13 @@ document.addEventListener('DOMContentLoaded', () => {
         // Ensure accessibility focus logic if needed
         // currentSlide.querySelector('h2').focus();
       };
+
+      // Handle Resize (Debounced)
+      const debouncedUpdate = debounce(() => {
+        updateSlides(currentSlideIndex);
+      }, 250);
+
+      window.addEventListener('resize', debouncedUpdate);
 
       // Initialize
       updateSlides(currentSlideIndex);
