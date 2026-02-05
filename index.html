@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Welcome | Darren Dizon</title>
+  <title>Assistive Tech Resources</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
@@ -17,7 +17,7 @@
     <!-- Top Alert Bar -->
     <div class="alert-bar">
       <div class="container">
-        <p><strong>Welcome to my accessible portfolio. <a href="#">Contact me</a> to learn more about my work.</strong></p>
+        <p><strong>Welcome to your hub for Assistive Technology resources.</strong></p>
       </div>
     </div>
 
@@ -25,8 +25,8 @@
     <div class="main-bar">
       <div class="container flex-parent">
         <div class="logo-container">
-          <a href="/" aria-label="Darren Dizon Home" class="text-logo">
-            Darren Dizon
+          <a href="/" aria-label="Assistive Tech Resources Home" class="text-logo">
+            Assistive Tech Resources
           </a>
         </div>
 
@@ -52,7 +52,7 @@
     <div id="mobile-menu" class="menu-drawer" aria-hidden="true" tabindex="-1">
       <div class="menu-header">
         <div class="logo-container">
-           <a href="/" class="text-logo">Darren Dizon</a>
+           <a href="/" class="text-logo">AT Resources</a>
         </div>
         <button class="menu-close btn btn-dark" aria-label="Close Menu">
           <span class="icon">close</span> Menu
@@ -63,21 +63,13 @@
         <div class="menu-primary">
           <nav aria-label="Primary Navigation">
             <ul class="nav-list">
-              <li><a href="#">About Me</a></li>
-              <li><a href="#">Portfolio</a></li>
-              <li><a href="#">Services</a></li>
-              <li><a href="#">Blog</a></li>
-              <li><a href="apple-music/index.html">Apple Music</a></li>
+              <li><a href="/">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#software">Software Resources</a></li>
+              <li><a href="#hardware">Hardware Resources</a></li>
+              <li><a href="#contact">Contact</a></li>
             </ul>
           </nav>
-        </div>
-        <div class="menu-secondary">
-           <ul class="nav-list-secondary">
-             <li><a href="#">Consulting</a></li>
-             <li><a href="#">Speaking</a></li>
-             <li><a href="#">Contact</a></li>
-           </ul>
-           <a href="#" class="btn btn-cta btn-block">Get in Touch</a>
         </div>
         <div class="font-callout">
           <p>This site uses the accessible font <a href="#">Atkinson Hyperlegible</a>.</p>
@@ -92,188 +84,75 @@
     <section class="hero-section">
       <div class="container flex-parent">
         <div class="hero-content">
-          <h1>Designing for Inclusivity</h1>
-          <p class="hero-subtext">Creating accessible digital experiences that empower everyone, regardless of ability.</p>
-          <p class="hero-subtext">Let's build something beautiful together.</p>
-          <a href="#" class="btn btn-cta-sky">View Portfolio</a>
+          <h1>Empowering Accessibility through Technology</h1>
+          <p class="hero-subtext">Discover the tools that bridge the gap. Software and hardware solutions for a more inclusive digital world.</p>
+          <a href="#resources" class="btn btn-cta-sky">Explore Resources</a>
         </div>
         <div class="hero-video">
-          <!-- Placeholder for video -->
           <div class="video-placeholder">
-             <img src="https://placehold.co/900x600/253746/FFF?text=Hero+Video+Placeholder" alt="Video Placeholder">
-             <button class="play-button" aria-label="Play Video"><span class="icon">play_arrow</span></button>
-          </div>
-          <p class="video-caption"><strong>Accessibility First:</strong> All media on this site includes captions and descriptions.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="signup-section bg-light">
-      <div class="container">
-        <div class="section-header">
-          <h2>My Expertise</h2>
-          <p><strong>Web Development. Accessibility Audits. Design.</strong></p>
-        </div>
-        <div class="signup-grid">
-          <div class="signup-card">
-            <h3><a href="#">Web Development</a></h3>
-            <div class="card-image">
-              <img src="https://placehold.co/980x653/EEE/333?text=Development" alt="Code on a screen">
-            </div>
-          </div>
-          <div class="signup-card">
-            <h3><a href="#">Accessibility</a></h3>
-            <div class="card-image">
-              <img src="https://placehold.co/980x653/EEE/333?text=Accessibility" alt="Accessibility testing">
-            </div>
+             <img src="https://placehold.co/900x600/0056b3/FFF?text=Assistive+Tech" alt="Assistive Technology Illustration">
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Offerings Section -->
-    <section class="offerings-section">
+    <!-- About Section -->
+    <section id="about" class="bg-light">
       <div class="container">
         <div class="section-header">
-          <h2>Navigate the Digital World.<br>With Confidence.</h2>
-          <p>I provide comprehensive solutions to ensure your digital presence is open to all users.</p>
+           <h2>About This Resource</h2>
+           <p>We are dedicated to providing up-to-date information on the leading assistive technologies available today.</p>
         </div>
-        <div class="offerings-controls">
-          <a href="#" class="btn btn-cta-sky">All Services</a>
-          <a href="#" class="btn btn-cta-sky">Consulting</a>
-          <a href="#" class="btn btn-cta-sky">Audits</a>
+        <p>Whether you are looking for screen readers, magnification software, or tactile displays, our goal is to help you find the right tools to navigate the digital landscape with confidence and independence.</p>
+      </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section id="resources">
+      <div class="container">
+        <div class="section-header">
+          <h2>Assistive Technology Resources</h2>
+          <p>Explore industry-leading software and hardware solutions.</p>
         </div>
 
-        <div class="offerings-grid">
-          <!-- Card 1 -->
-          <div class="offering-card">
-            <div class="card-image">
-              <img src="https://placehold.co/800x533/253746/FFF?text=Audit" alt="Audit Report">
-            </div>
-            <div class="card-content">
-              <span class="card-type">Service</span>
-              <span class="card-location">Remote</span>
-              <h3><a href="#">Full Site Accessibility Audit</a></h3>
-              <p>A complete review of your website against WCAG 2.1 guidelines with actionable reporting.</p>
-              <div class="card-date">Available Now</div>
-            </div>
-          </div>
-          <!-- Card 2 -->
-          <div class="offering-card">
-            <div class="card-image">
-              <img src="https://placehold.co/800x533/253746/FFF?text=Training" alt="Workshop">
-            </div>
-            <div class="card-content">
-              <span class="card-type">Workshop</span>
-              <span class="card-location">In-Person / Online</span>
-              <h3><a href="#">Inclusive Design Workshop</a></h3>
-              <p>Train your team on the principles of inclusive design and how to implement them.</p>
-              <div class="card-date">March 15, 2026</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="schedule-links">
-           <div class="link-block">
-             <h4>Consulting Schedule</h4>
-             <a href="#" class="btn btn-cta-sky">Book a Call</a>
+        <!-- Software -->
+        <div id="software" class="resource-category">
+           <h3>Software Solutions</h3>
+           <div class="signup-grid">
+             <div class="signup-card">
+               <h3>JAWS®</h3>
+               <p>Job Access With Speech (JAWS) is the world's most popular screen reader, developed for computer users whose vision loss prevents them from seeing screen content or navigating with a mouse.</p>
+             </div>
+             <div class="signup-card">
+               <h3>ZoomText®</h3>
+               <p>ZoomText Magnifier/Reader is a fully integrated magnification and reading program tailored for low-vision users.</p>
+             </div>
+             <div class="signup-card">
+               <h3>Fusion®</h3>
+               <p>Fusion provides the best of both worlds – ZoomText, with its screen magnification and visual enhancements, coupled with the power and speed of JAWS.</p>
+             </div>
            </div>
-           <div class="link-block">
-             <h4>Upcoming Workshops</h4>
-             <a href="#" class="btn btn-cta-sky">View Calendar</a>
+        </div>
+
+        <br><br>
+
+        <!-- Hardware -->
+        <div id="hardware" class="resource-category">
+           <h3>Hardware Solutions</h3>
+           <div class="signup-grid">
+             <div class="signup-card">
+               <h3>Monarch Tactile Device</h3>
+               <p>The Monarch is a revolutionary dynamic tactile device that brings multi-line braille and tactile graphics to the fingertips of blind and low-vision users.</p>
+             </div>
+             <div class="signup-card">
+               <h3>BrailleSense 6</h3>
+               <p>The BrailleSense 6 is the most powerful braille notetaker on the market, designed to help you communicate, connect, and create.</p>
+             </div>
            </div>
         </div>
       </div>
     </section>
 
-    <!-- Info Section -->
-    <section class="info-section bg-light">
-      <div class="container flex-parent">
-        <div class="info-text">
-          <h2>There’s a Lot to Learn.<br>That’s Why I’m Here.</h2>
-          <p>Understanding accessibility standards can be challenging. It doesn’t have to be. I simplify the process for you.</p>
-          <a href="#" class="btn btn-cta-sky">Learn About Vision</a>
-        </div>
-        <div class="info-video">
-           <div class="video-placeholder">
-             <img src="https://placehold.co/900x600/EEE/333?text=Explainer+Video" style="object-fit: cover; width: 100%; height: 100%;" alt="Explainer video thumbnail">
-             <button class="play-button" aria-label="Play Video"><span class="icon">play_arrow</span></button>
-           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- News Section -->
-    <section class="news-section">
-      <div class="container">
-        <h2>Latest Insights</h2>
-        <div class="news-grid">
-          <div class="news-card">
-            <div class="card-image">
-              <img src="https://placehold.co/800x533/253746/FFF?text=Award" alt="Award trophy">
-            </div>
-            <div class="card-content">
-              <div class="meta">December 2nd, 2025</div>
-              <h3><a href="#">Darren Dizon Recognized for Excellence in Accessible Design</a></h3>
-            </div>
-          </div>
-          <div class="news-card">
-            <div class="card-image">
-              <img src="https://placehold.co/800x533/253746/FFF?text=Blog+Post" alt="Writing braille">
-            </div>
-            <div class="card-content">
-              <div class="meta">August 14th, 2025</div>
-              <h3><a href="#">The Future of Screen Readers and AI</a></h3>
-            </div>
-          </div>
-        </div>
-        <div class="center-cta">
-          <a href="#" class="btn btn-cta-sky">Read More</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Locations Section -->
-    <section class="locations-section bg-light">
-      <div class="container">
-        <div class="section-header">
-          <h2>Global Reach.<br>Personal Touch.</h2>
-          <p>Connect with me remotely or meet in person at select hubs.</p>
-        </div>
-        <div class="locations-grid">
-          <div class="location-col">
-            <h3>Hubs</h3>
-            <a href="#" class="map-link">View Locations</a>
-            <div class="location-image">
-              <img src="https://placehold.co/1050x554/EEE/333?text=Map" alt="Map of locations">
-            </div>
-          </div>
-          <div class="location-col">
-            <h3>Remote</h3>
-            <div class="location-image">
-              <img src="https://placehold.co/525x277/EEE/333?text=Remote+Work" alt="Online Meeting">
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Staff Section -->
-    <section class="staff-section">
-      <div class="container flex-parent">
-        <div class="staff-text">
-          <h2>Experts Who Care</h2>
-          <p>Partner with professionals dedicated to making the web a better place.</p>
-          <a href="#" class="btn btn-cta-sky">Meet The Team</a>
-        </div>
-        <div class="staff-feature bg-dark">
-          <img src="https://placehold.co/300x244/FFF/333?text=Profile" alt="Darren Dizon">
-          <h3>Darren Dizon - Lead Accessibility Engineer</h3>
-          <p>"I enjoy helping organizations adjust to modern standards by giving them the tools to sustain meaningful, accessible products."</p>
-        </div>
-      </div>
-    </section>
 
   </main>
 
@@ -281,16 +160,16 @@
   <footer class="site-footer">
     <div class="container">
       <div class="footer-top">
-        <h3>Give Me Your Feedback</h3>
-        <p>Help me improve this website by taking a <a href="#">quick survey here</a>.</p>
+        <h3>We Value Your Feedback</h3>
+        <p>Help us improve this resource by taking a <a href="#">quick survey here</a>.</p>
       </div>
 
       <div class="footer-main flex-parent">
         <div class="footer-info">
-          <a href="/" class="text-logo-footer">Darren Dizon</a>
-          <p><a href="mailto:hello@darrendizon.com">hello@darrendizon.com</a></p>
+          <a href="/" class="text-logo-footer">AT Resources</a>
+          <p><a href="mailto:info@atresources.com">info@atresources.com</a></p>
           <p>123 Accessibility Lane<br>Web City, Internet 90000</p>
-          <a href="#" class="btn btn-cta-sky">Contact Me</a>
+          <a href="#" class="btn btn-cta-sky">Contact Us</a>
         </div>
 
         <div class="footer-donate">
@@ -330,7 +209,7 @@
           <a href="#">Privacy & Legal</a>
         </div>
 
-        <p class="copyright">© 2026 | Darren Dizon | All Rights Reserved</p>
+        <p class="copyright">© 2026 | Assistive Tech Resources | All Rights Reserved</p>
       </div>
     </div>
   </footer>

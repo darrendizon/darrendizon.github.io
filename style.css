@@ -1,5 +1,5 @@
 :root {
-  --color-primary-yellow: #fcdc3e;
+  --color-primary-accent: #0056b3;
   --color-primary-dark-blue: #004d70;
   --color-primary-light-blue: #ddf7ff;
   --color-sky-blue: #2ea3f2;
@@ -50,7 +50,7 @@ body.dark-mode h6 {
 }
 
 body.dark-mode a {
-  color: #fcdc3e;
+  color: #66b0ff;
 }
 
 body.dark-mode .bg-light {
@@ -135,8 +135,8 @@ h3 { font-size: 2rem; }
   top: -9999px;
   left: 50%;
   transform: translateX(-50%);
-  background: var(--color-primary-yellow);
-  color: var(--color-text-dark);
+  background: var(--color-primary-accent);
+  color: #fff;
   padding: 1rem 2rem;
   z-index: 10000;
   font-weight: bold;
@@ -175,8 +175,8 @@ h3 { font-size: 2rem; }
 }
 
 .btn-cta {
-  background-color: var(--color-primary-yellow);
-  color: var(--color-text-dark);
+  background-color: var(--color-primary-accent);
+  color: #fff;
   border-color: var(--color-primary-dark-blue);
   box-shadow: -4px 4px 0px 0px var(--color-primary-dark-blue);
   font-size: 1.2rem;
@@ -210,7 +210,8 @@ h3 { font-size: 2rem; }
 }
 
 .alert-bar {
-  background-color: var(--color-primary-yellow);
+  background-color: var(--color-primary-accent);
+  color: #fff;
   padding: 0.5rem 0;
   text-align: center;
   border-bottom: 2px solid var(--color-text-body);
@@ -314,7 +315,8 @@ h3 { font-size: 2rem; }
 }
 
 .font-callout {
-  background: var(--color-primary-yellow);
+  background: var(--color-primary-accent);
+  color: #fff;
   padding: 1.5rem;
   border-radius: 8px;
   border: 2px solid var(--color-text-body);
@@ -355,7 +357,7 @@ h3 { font-size: 2rem; }
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: var(--color-primary-yellow);
+  background: var(--color-primary-accent);
   border: 2px solid var(--color-text-body);
   border-radius: 8px;
   padding: 1rem 2rem;
@@ -369,7 +371,8 @@ h3 { font-size: 2rem; }
 
 .video-caption {
   margin-top: 1rem;
-  background: var(--color-primary-yellow);
+  background: var(--color-primary-accent);
+  color: #fff;
   padding: 1rem;
   border-radius: 8px;
   border: 2px solid var(--color-text-body);
